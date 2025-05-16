@@ -16,7 +16,8 @@ const rl = readline.createInterface({
 let prompt = () => {
   rl.question("$ ", (answer) => {
     if(answer == "exit 0"){
-      return
+        console.log(`0`)
+        return
     }
   console.log(`${answer}: command not found`)
   prompt()
