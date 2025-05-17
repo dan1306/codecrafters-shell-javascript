@@ -57,7 +57,7 @@ let execute = (ans) => {
 
 let opt = function(file = null, fieArgs = null){
   let res = false
-  if(!file || !fileArgs) return res;
+  if(!file || !fieArgs) return res;
   exec(file, fieArgs, function(err, data) { 
         // exec('file.EXE', ["arg1", "arg2", "arg3"], function(err, data) {  
           // console.log(err)
