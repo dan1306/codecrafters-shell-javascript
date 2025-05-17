@@ -20,13 +20,17 @@ let prompt = () => {
         // console.log(`0`)
         process.exit(0)
     }else if(answer.includes("type")){
-      if(answer.includes("echo")){
+      let ans = answer.replace("echo ", "");
+      // console.log(ans)
+      if(ans.includes("echo")){
         console.log(`echo is a shell builtin`)
-      } else if(answer.includes("exit")){
+      } else if(ans.includes("exit")){
         console.log(`exit is a shell builtin`)
-      } else if(answer.includes("invalid_command")){
+      } else if(ans.includes("invalid_command")){
         console.log(`invalid_command: not found`)
 
+      }else if(ans.includes("type")){
+        console.log(`type is a shell builtin`)
       }
       
     } else if(answer.includes("echo")){
