@@ -11,7 +11,6 @@ const rl = readline.createInterface({
 let Exist = (file) => {
 
   let myVariable = process.env.PATH || false;
-  // console.log(`daniel: ${file }`)
 
   if(myVariable){
     let myArr = myVariable.split(":")
@@ -28,7 +27,6 @@ let Exist = (file) => {
 let execute = (ans) => {
 
   let myVariable = process.env.PATH || false;
-  // console.log(`daniel: ${file }`)
   ans = ans.split(" ")
   if(ans.length < 2) return false;
   let file = ans[0]
@@ -63,7 +61,6 @@ let opt = function(file = null, fieArgs = null){
           // console.log(err)
           // console.log(data.toString());    
           if(!err){
-            let output = data.toString().replace("$ ", "")
             console.log(output)
           }                
   });  
@@ -71,17 +68,10 @@ let opt = function(file = null, fieArgs = null){
   return res;
 }
 
-// Exist('cat')
-// Uncomment this block to pass the first stage
-
-// while(1){
-// rl.question("$ ", (answer) => {
-//   console.log(`${answer}: command not found`)
-//   rl.close();
-// });
 
 let prompt = () => {
-  rl.question("$ ", (answer) => {
+  consoel.log("$ ");
+  rl.question("", (answer) => {
     if(answer == "exit 0"){
         // console.log(`0`)
         process.exit(0)
