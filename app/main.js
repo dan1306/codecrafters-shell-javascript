@@ -22,8 +22,9 @@ let prompt = () => {
     } else if(answer.includes("echo")){
       let ans = answer.replace("echo ", "");
       console.log(ans)
+    }else{
+      console.log(`${answer}: command not found`)
     }
-  // console.log(`${answer}: command not found`)
   prompt()
 });
 }
