@@ -37,6 +37,8 @@ let execute = (ans) => {
   for(let j = 1; j < ans.length; j++){
     fileArr.push(ans[j])
   }
+    console.log(fileArr)
+
 
   if(myVariable){
     let myArr = myVariable.split(":")
