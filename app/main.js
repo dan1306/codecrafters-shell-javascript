@@ -8,12 +8,17 @@ const rl = readline.createInterface({
 
 
 let isExecutable = (file) => {
-  fs.access(file, fs.constants.X_OK, err => {
-  console.log(`${file} ${err ? 'is not executable' : 'is executable'}`)
+//   fs.access(file, fs.constants.X_OK, err => {
+//   console.log(`${file} ${err ? 'is not executable' : 'is executable'}`)
 
-  return(err? false: true)
-})
+//   return(err? false: true)
+// })
+
+const myVariable = process.env.MY_VARIABLE;
+console.log(myVariable)
 }
+
+myVariable()
 // Uncomment this block to pass the first stage
 
 // while(1){
@@ -66,7 +71,7 @@ let prompt = () => {
 });
 }
 
-prompt()
+// prompt()
 
 
 
