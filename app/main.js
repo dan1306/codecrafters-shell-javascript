@@ -14,7 +14,7 @@ let isExecutable = (file) => {
 //   return(err? false: true)
 // })
 
-const myVariable = process.env.MY_VARIABLE;
+const myVariable = process.env.PATH || "";
 console.log("daniel")
 console.log(myVariable)
 }
