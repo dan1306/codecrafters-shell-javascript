@@ -18,7 +18,7 @@ const myVariable = process.env.MY_VARIABLE;
 console.log(myVariable)
 }
 
-myVariable()
+isExecutable()
 // Uncomment this block to pass the first stage
 
 // while(1){
