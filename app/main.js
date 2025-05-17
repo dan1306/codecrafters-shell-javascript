@@ -65,7 +65,7 @@ let prompt = () => {
 });
 }
 
-// prompt()
+prompt()
 
 
 
