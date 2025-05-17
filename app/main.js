@@ -12,7 +12,9 @@ let Exist = (file) => {
   let myVariable = process.env.PATH || false;
   console.log(myVariable)
 
-  // if(myVariable){
+  if(myVariable){
+    let myArr = myVariable.split(":")
+    console.log(myArr)
   //   myVariable = myVariable.split(":");
   //   for (let  x of myVariable) {
   //     // if(fs.existsSync(`${x}/${file}`)){
@@ -21,7 +23,7 @@ let Exist = (file) => {
   //     console.log(x)
   //     return false 
   //   }
-  // }
+  }
   // return false
 }
 
