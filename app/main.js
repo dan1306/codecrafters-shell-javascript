@@ -42,9 +42,7 @@ let prompt = () => {
       let ans = answer.replace("type ", "");
       let exist = Exist(ans)
       // console.log(ans)
-      if(exist) {
-        console.log(`${ans} is ${exist}`)
-      }else if(ans.includes("echo")){
+      if(ans.includes("echo")){
         console.log(`echo is a shell builtin`)
       } else if(ans.includes("exit")){
         console.log(`exit is a shell builtin`)
@@ -53,6 +51,8 @@ let prompt = () => {
 
       }else if(ans.includes("type")){
         console.log(`type is a shell builtin`)
+      }else if(exist){
+        console.log(`${ans} is ${exist}`)
       }else{
         console.log(`${ans}: not found`)
       }
