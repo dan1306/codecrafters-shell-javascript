@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 let Exist = (file) => {
 
   let myVariable = process.env.PATH || false;
-  // console.log(myVariable)
+  console.log(`daniel: ${file }`)
 
   if(myVariable){
     let myArr = myVariable.split(":")
@@ -37,7 +37,6 @@ let Exist = (file) => {
 
 let prompt = () => {
   rl.question("$ ", (answer) => {
-    let dummy = answer
     if(answer == "exit 0"){
         // console.log(`0`)
         process.exit(0)
