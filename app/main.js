@@ -62,7 +62,7 @@ let opt = function(file = null, fieArgs = null){
           // console.log(data.toString());    
           if(!err){
             // console.log(data.toString())
-            console.log(`$ ${data.toString()}`);
+            console.log(`${data.toString()}`);
           }                
   });  
 
@@ -71,8 +71,9 @@ let opt = function(file = null, fieArgs = null){
 
 
 let prompt = () => {
-  process.stdout.write("$ ");
-  rl.question("", (answer) => {
+  // process.stdout.write("$ ");
+  rl.question("$ ", (answer) => {
+    console.log(`$ ${answer}`); 
     if(answer == "exit 0"){
         // console.log(`0`)
         process.exit(0)
