@@ -10,12 +10,13 @@ const rl = readline.createInterface({
 let Exist = (file) => {
 
   let myVariable = process.env.PATH || false;
-  console.log(myVariable)
+  // console.log(myVariable)
 
   if(myVariable){
     let myArr = myVariable.split(":")
-    console.log(myArr)
+    // console.log(myArr)
     for (let i = 0; i < myArr.length; i++) {
+
       if(fs.existsSync(`${myArr[i]}/${file}`)){
         return(`${myArr[i]}/${file}`)
       }
