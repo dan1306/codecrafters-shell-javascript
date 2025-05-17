@@ -107,8 +107,8 @@ let prompt = () => {
       let ans = answer.replace("echo ", "");
       console.log(ans)
     }else if(!answer.includes("type")){
-      let ans = answer.replace("type ", "");
-      execute(ans)
+      
+      execute(answer)
     }else{
       console.log(`${answer}: command not found`)
     }
