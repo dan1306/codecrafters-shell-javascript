@@ -15,6 +15,7 @@ let isExecutable = (file) => {
 // })
 
 const myVariable = process.env.MY_VARIABLE;
+console.log("daniel")
 console.log(myVariable)
 }
 
