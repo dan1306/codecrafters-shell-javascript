@@ -25,7 +25,7 @@ let prompt = () => {
       let ans = answer.replace("type ", "");
       // console.log(ans)
       if(path.dirname(ans)) {
-        console.log(`${ans} is ${path.dirname(ans)}`)
+        console.log(`${ans} is ${path.resolve(ans)}`)
       }else if(ans.includes("echo")){
         console.log(`echo is a shell builtin`)
       } else if(ans.includes("exit")){
