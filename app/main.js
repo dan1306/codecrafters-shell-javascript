@@ -14,8 +14,8 @@ let myVariable = process.env.PATH || false;
   if(myVariable){
     myVariable = myVariable.split(":");
     for (let  x of myVariable) {
-      if(fs.existsSync(`${x}/${ans}`)){
-        return (`${x}/${ans}`)
+      if(fs.existsSync(`${x}/${file}`)){
+        return (`${x}/${file}`)
       }
       return false 
     }
