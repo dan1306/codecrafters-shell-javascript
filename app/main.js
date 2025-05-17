@@ -61,7 +61,8 @@ let opt = function(file = null, fieArgs = null){
           // console.log(err)
           // console.log(data.toString());    
           if(!err){
-            console.log(data.toString())
+            // console.log(data.toString())
+            console.log(`$ ${data.toString()}`);
           }                
   });  
 
