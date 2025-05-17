@@ -70,7 +70,7 @@ let opt = function(file = null, fieArgs = null){
 
 
 let prompt = () => {
-  console.log("$ ");
+  process.stdout.write("$ ");
   rl.question("", (answer) => {
     if(answer == "exit 0"){
         // console.log(`0`)
