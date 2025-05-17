@@ -20,7 +20,7 @@ let prompt = () => {
         // console.log(`0`)
         process.exit(0)
     }else if(answer.includes("type")){
-      let ans = answer.replace("echo ", "");
+      let ans = answer.replace("type ", "");
       // console.log(ans)
       if(ans.includes("echo")){
         console.log(`echo is a shell builtin`)
@@ -31,6 +31,8 @@ let prompt = () => {
 
       }else if(ans.includes("type")){
         console.log(`type is a shell builtin`)
+      }else{
+        console.log(`${ans}: not found`)
       }
       
     } else if(answer.includes("echo")){
