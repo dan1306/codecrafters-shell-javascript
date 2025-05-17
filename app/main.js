@@ -7,19 +7,21 @@ const rl = readline.createInterface({
 });
 
 
-let isExecutable = (file) => {
-//   fs.access(file, fs.constants.X_OK, err => {
-//   console.log(`${file} ${err ? 'is not executable' : 'is executable'}`)
+let Exist = (file) => {
 
-//   return(err? false: true)
-// })
+const myVariable = process.env.PATH || false;
 
-const myVariable = process.env.PATH || "";
-console.log("daniel")
-console.log(myVariable)
+  if(myVariable){
+    myVariable = myVariable.split(":");
+    for (let x of myVariable) {
+      if(fs.existsSync(`${x}/${ans}`)){
+        return (`${x}/${ans}`)
+      }
+      return false 
+    }
+  }
+  return false
 }
-
-isExecutable()
 // Uncomment this block to pass the first stage
 
 // while(1){
@@ -36,19 +38,10 @@ let prompt = () => {
         process.exit(0)
     }else if(answer.includes("type")){
       let ans = answer.replace("type ", "");
+      let exist = Exist(ans)
       // console.log(ans)
-      if(fs.existsSync(`/bin/${ans}`) ) {
-        // if(isExecutable(`/bin/${ans}`) == )
-        console.log(`${ans} is /bin/${ans}`)
-      }else if(fs.existsSync(`/local/bin/${ans}`)){
-        console.log(`${ans} is /local/bin/${ans}`)
-
-      }else if(fs.existsSync(`usr/local/bin/${ans}` )){
-        console.log(`${ans} is usr/local/bin/${ans}`)
-
-      }else if(fs.existsSync(`/tmp/qux/${ans}` )){
-        console.log(`${ans} is tmp/qux/bin/${ans}`)
-
+      if(exist) {
+        console.log(`${ans} is ${exist}`)
       }else if(ans.includes("echo")){
         console.log(`echo is a shell builtin`)
       } else if(ans.includes("exit")){
