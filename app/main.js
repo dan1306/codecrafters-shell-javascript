@@ -16,13 +16,16 @@ let Exist = (file) => {
     let myArr = myVariable.split(":")
     console.log(myArr)
     for (let i = 0; i < myArr.length; i++) {
-      console.log(myArr[i]);
+      if(fs.existsSync(`${x}/${file}`)){
+        return(`${x}/${file}`)
+      }
+      return false
     }
   }
   return false
 }
 
-Exist('cat')
+// Exist('cat')
 // Uncomment this block to pass the first stage
 
 // while(1){
@@ -66,7 +69,7 @@ let prompt = () => {
 });
 }
 
-// prompt()
+prompt()
 
 
 
