@@ -1,5 +1,7 @@
 const readline = require("readline");
 
+const path = require('node:path');
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -22,7 +24,9 @@ let prompt = () => {
     }else if(answer.includes("type")){
       let ans = answer.replace("type ", "");
       // console.log(ans)
-      if(ans.includes("echo")){
+      if(path.dirname(ans)) {
+        console.log(`${ans} is ${path.dirname(ans)}`)
+      }else if(ans.includes("echo")){
         console.log(`echo is a shell builtin`)
       } else if(ans.includes("exit")){
         console.log(`exit is a shell builtin`)
