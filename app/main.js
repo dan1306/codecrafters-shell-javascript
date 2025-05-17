@@ -63,7 +63,7 @@ let opt = function(file = null, fieArgs = null){
           // console.log(err)
           // console.log(data.toString());    
           if(!err){
-            res = data.toString()
+            console.log(`daniel: ${data.toString()}`) 
           }                
   });  
 
