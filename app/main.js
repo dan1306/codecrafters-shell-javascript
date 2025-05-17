@@ -23,10 +23,13 @@ let prompt = () => {
     }else if(answer.includes("type")){
       let ans = answer.replace("type ", "");
       // console.log(ans)
-      if(fs.existsSync(`./bin/${ans}`)) {
+      if(fs.existsSync(`/bin/${ans}`)) {
         console.log(`${ans} is /bin/${ans}`)
-      }else if(fs.existsSync(`./local/bin/${ans}`)){
+      }else if(fs.existsSync(`/local/bin/${ans}`)){
         console.log(`${ans} is /local/bin/${ans}`)
+
+      }else if(fs.existsSync(`usr/local/bin/${ans}`)){
+        console.log(`${ans} is usr/local/bin/${ans}`)
 
       }else if(ans.includes("echo")){
         console.log(`echo is a shell builtin`)
