@@ -16,12 +16,9 @@ let Exist = (file) => {
     let myArr = myVariable.split(":")
     // console.log(myArr)
     for (let i = 0; i < myArr.length; i++) {
-      console.log(`daniel: ${myArr[i]}/${file}`)
       if(fs.existsSync(`${myArr[i]}/${file}`)){
-        console.log(`daniel: ${myArr[i]}/${file}`)
         return(`${myArr[i]}/${file}`)
       }
-      return false
     }
   }
   return false
