@@ -15,11 +15,15 @@ const rl = readline.createInterface({
 
 let prompt = () => {
   rl.question("$ ", (answer) => {
+    let dummy = answer
     if(answer == "exit 0"){
         // console.log(`0`)
         process.exit(0)
+    } else if(answer.includes("echo")){
+      let ans = answer.replace("echo ", "");
+      console.log(ans)
     }
-  console.log(`${answer}: command not found`)
+  // console.log(`${answer}: command not found`)
   prompt()
 });
 }
