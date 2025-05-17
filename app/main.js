@@ -9,11 +9,11 @@ const rl = readline.createInterface({
 
 let Exist = (file) => {
 
-const myVariable = process.env.PATH || false;
+let myVariable = process.env.PATH || false;
 
   if(myVariable){
     myVariable = myVariable.split(":");
-    for (const x of myVariable) {
+    for (let  x of myVariable) {
       if(fs.existsSync(`${x}/${ans}`)){
         return (`${x}/${ans}`)
       }
