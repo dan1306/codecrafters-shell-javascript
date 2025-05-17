@@ -24,7 +24,7 @@ let Exist = (file) => {
   return false
 }
 
-Exist(cat)
+Exist('cat')
 // Uncomment this block to pass the first stage
 
 // while(1){
