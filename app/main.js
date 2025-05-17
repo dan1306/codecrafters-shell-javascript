@@ -37,7 +37,7 @@ let execute = (ans) => {
   for(let j = 1; j < ans.length; j++){
     fileArr.push(ans[j])
   }
-    console.log(fileArr)
+    // console.log(fileArr)
 
 
   if(myVariable){
@@ -108,7 +108,7 @@ let prompt = () => {
       console.log(ans)
     }else if(!answer.includes("type")){
       
-      execute(answer)
+      return(execute(answer))
     }else{
       console.log(`${answer}: command not found`)
     }
