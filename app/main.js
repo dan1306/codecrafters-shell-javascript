@@ -80,7 +80,7 @@ let opt = function(file = null, fieArgs = null){
 // });
 
 let prompt = () => {
-  rl.question("$ ", (answer) => {
+  rl.question("", (answer) => {
     if(answer == "exit 0"){
         // console.log(`0`)
         process.exit(0)
