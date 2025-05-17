@@ -105,7 +105,7 @@ let prompt = () => {
       let ans = answer.replace("echo ", "");
       console.log(ans)
     }else if(execute(ans)){
-      console.log(execute(ans))
+      console.log(`daniel: ${execute(ans)}`)
     }else{
       console.log(`${answer}: command not found`)
     }
