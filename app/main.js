@@ -63,7 +63,7 @@ let opt = function(file = null, fieArgs = null){
           // console.log(err)
           // console.log(data.toString());    
           if(!err){
-            console.log(`daniel: ${data.toString()}`) 
+            return(data.toString())
           }                
   });  
 
@@ -108,7 +108,7 @@ let prompt = () => {
       console.log(ans)
     }else if(!answer.includes("type")){
       
-      return(execute(answer))
+      execute(answer)
     }else{
       console.log(`${answer}: command not found`)
     }
