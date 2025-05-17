@@ -19,9 +19,6 @@ let prompt = () => {
     if(answer == "exit 0"){
         // console.log(`0`)
         process.exit(0)
-    } else if(answer.includes("echo")){
-      let ans = answer.replace("echo ", "");
-      console.log(ans)
     }else if(answer.includes("type")){
       if(answer.includes("echo")){
         console.log(`echo is a shell builtin`)
@@ -32,6 +29,9 @@ let prompt = () => {
 
       }
       
+    } else if(answer.includes("echo")){
+      let ans = answer.replace("echo ", "");
+      console.log(ans)
     }else{
       console.log(`${answer}: command not found`)
     }
