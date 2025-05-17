@@ -13,7 +13,7 @@ const myVariable = process.env.PATH || false;
 
   if(myVariable){
     myVariable = myVariable.split(":");
-    for (let x of myVariable) {
+    for (const x of myVariable) {
       if(fs.existsSync(`${x}/${ans}`)){
         return (`${x}/${ans}`)
       }
