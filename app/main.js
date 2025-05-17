@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 let Exist = (file) => {
 
-let myVariable = process.env.PATH || false;
+  let myVariable = process.env.PATH || false;
 
   if(myVariable){
     myVariable = myVariable.split(":");
@@ -23,6 +23,8 @@ let myVariable = process.env.PATH || false;
   }
   return false
 }
+
+Exist(cat)
 // Uncomment this block to pass the first stage
 
 // while(1){
@@ -66,7 +68,7 @@ let prompt = () => {
 });
 }
 
-prompt()
+// prompt()
 
 
 
