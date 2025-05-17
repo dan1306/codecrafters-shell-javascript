@@ -1,4 +1,5 @@
 const readline = require("readline");
+const exec = require('child_process').execFile;
 
 const fs = require('fs');
 const rl = readline.createInterface({
@@ -22,6 +23,49 @@ let Exist = (file) => {
     }
   }
   return false
+}
+
+let execute = (ans) => {
+
+  let myVariable = process.env.PATH || false;
+  // console.log(`daniel: ${file }`)
+  ans = ans.split(" ")
+  if(ans.length < 2) return false;
+  let file = ans[0]
+  let fileArr = []
+
+  for(let j = 1; j < ans.length; j++){
+    fileArr.push(ans[j])
+  }
+
+  if(myVariable){
+    let myArr = myVariable.split(":")
+    // console.log(myArr)
+    for (let i = 0; i < myArr.length; i++) {
+      if(fs.existsSync(`${myArr[i]}/${file}`)){
+        return opt(file, fileArr)
+      }
+    }
+  }
+  return false
+
+}
+
+
+
+let opt = function(file = null, fieArgs = null){
+  let res = false
+  if(!file || !fileArgs) return res;
+  exec(file, fieArgs, function(err, data) { 
+        // exec('file.EXE', ["arg1", "arg2", "arg3"], function(err, data) {  
+          // console.log(err)
+          // console.log(data.toString());    
+          if(!err){
+            res = data.toString()
+          }                
+  });  
+
+  return res;
 }
 
 // Exist('cat')
@@ -60,6 +104,8 @@ let prompt = () => {
     } else if(answer.includes("echo")){
       let ans = answer.replace("echo ", "");
       console.log(ans)
+    }else if(execute(ans)){
+      console.log(execute(ans))
     }else{
       console.log(`${answer}: command not found`)
     }
