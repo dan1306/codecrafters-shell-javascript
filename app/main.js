@@ -63,7 +63,7 @@ let opt = function(file = null, fieArgs = null){
           // console.log(err)
           // console.log(data.toString());    
           if(!err){
-            return(data.toString())
+            console.log(data.toString())
           }                
   });  
 
