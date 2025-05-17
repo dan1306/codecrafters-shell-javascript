@@ -10,18 +10,19 @@ const rl = readline.createInterface({
 let Exist = (file) => {
 
   let myVariable = process.env.PATH || false;
+  console.log(myVariable)
 
-  if(myVariable){
-    myVariable = myVariable.split(":");
-    for (let  x of myVariable) {
-      // if(fs.existsSync(`${x}/${file}`)){
-      //   return(`${x}/${file}`)
-      // }
-      console.log(x)
-      return false 
-    }
-  }
-  return false
+  // if(myVariable){
+  //   myVariable = myVariable.split(":");
+  //   for (let  x of myVariable) {
+  //     // if(fs.existsSync(`${x}/${file}`)){
+  //     //   return(`${x}/${file}`)
+  //     // }
+  //     console.log(x)
+  //     return false 
+  //   }
+  // }
+  // return false
 }
 
 Exist('cat')
