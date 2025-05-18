@@ -115,8 +115,7 @@ let prompt = () => {
       console.log(ans)
     }else if(!answer.includes("type")){
       
-      let annss = execute(answer)
-      console.log(annss)
+      execute(answer)
     }else{
       console.log(`${answer}: command not found`)
     }
