@@ -24,7 +24,7 @@ let Exist = (file) => {
   return false
 }
 
-let execute = (ans) => {
+let execute = async (ans) => {
 
   let myVariable = process.env.PATH || false;
   ans = ans.split(" ")
@@ -43,7 +43,7 @@ let execute = (ans) => {
     // console.log(myArr)
     for (let i = 0; i < myArr.length; i++) {
       if(fs.existsSync(`${myArr[i]}/${file}`)){
-        return opt(file, fileArr)
+        return await opt(file, fileArr)
       }
     }
   }
@@ -53,29 +53,30 @@ let execute = (ans) => {
 
 
 
-let opt = function(file = null, fieArgs = null){
+let opt = async (file = null, fieArgs = null) => {
   let res = false
-  let output
   if(!file || !fieArgs) return res;
-  // console.log("daniel")
-  exec(file, fieArgs, function(err, data) { 
-        // exec('file.EXE', ["arg1", "arg2", "arg3"], function(err, data) {  
-          // console.log(err)
-          // console.log(data.toString());    
-          if(!err){
-            // console.log(data.toString())
-            // console.log(`${data.toString()}`);
-          output = data.toString()
-          }                
-  });  
+  return new Promise((resolve, reject) => {    
+    exec(file, fieArgs, function(err, data) { 
+          // exec('file.EXE', ["arg1", "arg2", "arg3"], function(err, data) {  
+            // console.log(err)
+            // console.log(data.toString());    
+            if(err){
+              reject(err);
+            }else{
+              // console.log(data.toString())
+              // console.log(`${data.toString()}`);
+              resolve(data.toString())
+            }                
+    });  
 
-  console.log(output)
+})
 }
 
 
-let prompt = () => {
+let prompt = async () => {
   // process.stdout.write("$ ");
-  rl.question("$ ", (answer) => {
+  rl.question("$ ", async (answer) => {
     // console.log(`$ ${answer}`); 
     if(answer == "exit 0"){
         // console.log(`0`)
@@ -104,7 +105,8 @@ let prompt = () => {
       console.log(ans)
     }else if(!answer.includes("type")){
       
-      execute(answer)
+      let answerss = await execute(answer)
+      console.log(answerss)
     }else{
       console.log(`${answer}: command not found`)
     }
