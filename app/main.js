@@ -110,7 +110,12 @@ let prompt = () => {
 });
 }
 
-prompt()
+let m = 1
+
+
+while(m){
+  prompt();
+}
 
 
 
