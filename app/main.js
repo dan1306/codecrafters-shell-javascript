@@ -117,9 +117,8 @@ let prompt = () => {
     }else{
       console.log(`${answer}: command not found`)
     }
-
-});
   prompt()
+});
 }
 
 prompt()
