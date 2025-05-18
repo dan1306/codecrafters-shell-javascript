@@ -43,7 +43,10 @@ let execute = (ans) => {
     // console.log(myArr)
     for (let i = 0; i < myArr.length; i++) {
       if(fs.existsSync(`${myArr[i]}/${file}`)){
-        return opt(file, fileArr)
+        return {
+          "file": file,
+          "fileArr": fileArr
+        }
       }
     }
   }
@@ -103,7 +106,20 @@ let prompt = () => {
     }else if(!answer.includes("type")){
       // let ouputMe = execute(answer)
       // if(ouputMe) console.log(ouputMe)
-      console.log("daniel")
+      let outputMe = execute(answer)
+      let out = () => {
+        exec(outputMe["file"], outputMe["fileArr"], function(err, data) { 
+        // exec('file.EXE', ["arg1", "arg2", "arg3"], function(err, data) {  
+          // console.log(err)
+          // console.log(data.toString());    
+          if(!err){
+            // console.log(data.toString())
+            // console.log(`${data.toString()}`);
+             console.log(data.toString())
+          }                
+        });  
+      }
+
     }else{
       console.log(`${answer}: command not found`)
     }
