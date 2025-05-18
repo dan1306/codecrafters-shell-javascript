@@ -1,6 +1,5 @@
 const readline = require("readline");
-const exec = require('child_process').execFile;
-
+const { execFileSync } = require('child_process');
 const fs = require('fs');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -43,7 +42,7 @@ let execute = (ans) => {
     // console.log(myArr)
     for (let i = 0; i < myArr.length; i++) {
       if(fs.existsSync(`${myArr[i]}/${file}`)){
-        return opt(file, fileArr)
+        opt(file, fileArr)
       }
     }
   }
@@ -56,18 +55,28 @@ let execute = (ans) => {
 let opt = function(file = null, fieArgs = null){
   let res = false
   if(!file || !fieArgs) return res;
-  exec(file, fieArgs, function(err, data) { 
-        // exec('file.EXE', ["arg1", "arg2", "arg3"], function(err, data) {  
-          // console.log(err)
-          // console.log(data.toString());    
-          if(!err){
-            // console.log(data.toString())
-            // console.log(`${data.toString()}`);
-            process.stdout.write(data.toString());
-          }                
-  });  
+  // execFileSync(file, fieArgs, function(err, data) { 
+  //       // exec('file.EXE', ["arg1", "arg2", "arg3"], function(err, data) {  
+  //         // console.log(err)
+  //         // console.log(data.toString());    
+  //         if(!err){
+  //           // console.log(data.toString())
+  //           // console.log(`${data.toString()}`);
+  //           process.stdout.write(data.toString());
+  //         }                
+  // });  
+   const options = {
+    encoding: 'utf-8', // Specify encoding for the output
+    timeout: 5000,       // Optional: Set a timeout in milliseconds
+    // Other options like cwd, env, stdio can also be set as needed
+  };
+  
+   let ase =  execFileSync(file, fieArgs, options)
+   ase =ase.toString()
+  
 
-  return res;
+  console.log(ase)
+  // return ase;
 }
 
 
@@ -106,16 +115,11 @@ let prompt = () => {
     }else{
       console.log(`${answer}: command not found`)
     }
-  // prompt()
+  prompt()
 });
 }
 
-let m = 1
-
-
-while(m){
-  prompt();
-}
+prompt()
 
 
 
