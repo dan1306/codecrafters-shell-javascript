@@ -24,7 +24,7 @@ let Exist = (file) => {
   return false
 }
 
-let execute = async (ans) => {
+let execute = (ans) => {
 
   let myVariable = process.env.PATH || false;
   ans = ans.split(" ")
@@ -43,7 +43,12 @@ let execute = async (ans) => {
     // console.log(myArr)
     for (let i = 0; i < myArr.length; i++) {
       if(fs.existsSync(`${myArr[i]}/${file}`)){
-        return await opt(file, fileArr)
+        // return opt(file, fileArr)
+        let outss;
+        runExec(file, fileArr)
+          .then(output => outss = output)
+          .catch(err => console.error("Error:", err));
+          return outss
       }
     }
   }
@@ -53,30 +58,36 @@ let execute = async (ans) => {
 
 
 
-let opt = async (file = null, fieArgs = null) => {
-  let res = false
-  if(!file || !fieArgs) return res;
-  return new Promise((resolve, reject) => {    
-    exec(file, fieArgs, function(err, data) { 
-          // exec('file.EXE', ["arg1", "arg2", "arg3"], function(err, data) {  
-            // console.log(err)
-            // console.log(data.toString());    
-            if(err){
-              reject(err);
-            }else{
-              // console.log(data.toString())
-              // console.log(`${data.toString()}`);
-              resolve(data.toString())
-            }                
-    });  
+// let opt = function(file = null, fieArgs = null){
+//   let res = false
+//   if(!file || !fieArgs) return res;
+//   exec(file, fieArgs, function(err, data) { 
+//         // exec('file.EXE', ["arg1", "arg2", "arg3"], function(err, data) {  
+//           // console.log(err)
+//           // console.log(data.toString());    
+//           if(!err){
+//             // console.log(data.toString())
+//             // console.log(`${data.toString()}`);
+//             process.stdout.write(data.toString());
+//           }                
+//   });  
 
-})
+//   return res;
+// }
+
+let opt = (file, args) => {
+  return new Promise((resolve, reject) => {
+    execFile(file, args, (err, stdout) => {
+      if (err) reject(err);
+      else resolve(stdout.toString());
+    });
+  });
 }
 
 
 let prompt = () => {
   // process.stdout.write("$ ");
-  rl.question("$ ", async (answer) => {
+  rl.question("$ ", (answer) => {
     // console.log(`$ ${answer}`); 
     if(answer == "exit 0"){
         // console.log(`0`)
@@ -105,12 +116,12 @@ let prompt = () => {
       console.log(ans)
     }else if(!answer.includes("type")){
       
-      let answerss = await execute(answer)
-      console.log(answerss)
+      let annss = execute(answer)
+      console.log(annss)
     }else{
       console.log(`${answer}: command not found`)
     }
-   prompt()
+  prompt()
 });
 }
 
