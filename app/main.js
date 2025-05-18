@@ -45,7 +45,7 @@ let execute = (ans) => {
       if(fs.existsSync(`${myArr[i]}/${file}`)){
         // return opt(file, fileArr)
         let outss;
-        runExec(file, fileArr)
+        opt(file, fileArr)
           .then(output => outss = output)
           .catch(err => console.error("Error:", err));
           return outss
