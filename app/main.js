@@ -114,8 +114,8 @@ let prompt = () => {
           // console.log(data.toString());    
           if(!err){
             // console.log(data.toString())
-            // console.log(`${data.toString()}`);
-             console.log("dan")
+            console.log(`${data.toString()}`);
+            //  console.log("dan")
           }                
         });  
       }
