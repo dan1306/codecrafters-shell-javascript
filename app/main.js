@@ -110,11 +110,11 @@ let prompt = async () => {
     }else{
       console.log(`${answer}: command not found`)
     }
-  prompt()
+  await prompt()
 });
 }
 
-prompt()
+await prompt()
 
 
 
