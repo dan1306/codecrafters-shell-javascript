@@ -82,8 +82,8 @@ let opt = function(file = null, fieArgs = null){
 
 let prompt = () => {
   // process.stdout.write("$ ");
-  rl.question("", (answer) => {
-    console.log(`$ ${answer}`); 
+  rl.question("$ ", (answer) => {
+    // console.log(`$ ${answer}`); 
     if(answer == "exit 0"){
         // console.log(`0`)
         process.exit(0)
@@ -114,6 +114,7 @@ let prompt = () => {
       let ans = execute(answer)
       
       console.log(ans)
+      prompt()
     }else{
       console.log(`${answer}: command not found`)
     }
