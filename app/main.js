@@ -46,7 +46,7 @@ let execute = (ans) => {
         // return opt(file, fileArr)
         let outss;
         opt(file, fileArr)
-          .then(output => process.stdout.write(`${output}`))
+          .then(output => process.stdout.write(`daniel`))
           .catch(err => console.error("Error:", err));
       }
     }
