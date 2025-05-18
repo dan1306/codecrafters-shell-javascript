@@ -115,10 +115,12 @@ let prompt = () => {
           if(!err){
             // console.log(data.toString())
             // console.log(`${data.toString()}`);
-             console.log(data.toString())
+             console.log("dan")
           }                
         });  
       }
+
+      out()
 
     }else{
       console.log(`${answer}: command not found`)
