@@ -78,7 +78,7 @@ let opt = (file, args) => {
   return new Promise((resolve, reject) => {
     execFile(file, args, (err, stdout) => {
       if (err) reject(err);
-      else resolve(stdout.toString());
+      else resolve(stdout);
     });
   });
 }
