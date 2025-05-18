@@ -42,7 +42,7 @@ let execute = (ans) => {
     // console.log(myArr)
     for (let i = 0; i < myArr.length; i++) {
       if(fs.existsSync(`${myArr[i]}/${file}`)){
-        opt(file, fileArr)
+        return opt(file, fileArr)
       }
     }
   }
@@ -75,8 +75,8 @@ let opt = function(file = null, fieArgs = null){
    ase =ase.toString()
   
 
-  console.log(ase)
-  // return ase;
+  // console.log(ase)
+  return ase;
 }
 
 
@@ -110,8 +110,10 @@ let prompt = () => {
       let ans = answer.replace("echo ", "");
       console.log(ans)
     }else if(!answer.includes("type")){
+
+      let ans = execute(answer)
       
-      execute(answer)
+      console.log("daniel")
     }else{
       console.log(`${answer}: command not found`)
     }
