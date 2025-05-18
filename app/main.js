@@ -81,9 +81,9 @@ let opt = function(file = null, fieArgs = null){
 
 
 let prompt = () => {
-  process.stdout.write("$ ");
+  // process.stdout.write("$ ");
   rl.question("", (answer) => {
-    // console.log(`$ ${answer}`); 
+    console.log(`$ ${answer}`); 
     if(answer == "exit 0"){
         // console.log(`0`)
         process.exit(0)
