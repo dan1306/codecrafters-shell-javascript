@@ -87,6 +87,7 @@ let opt = (file, args) => {
 
 let prompt = () => {
   // process.stdout.write("$ ");
+  let outppp;
   rl.question("$ ", (answer) => {
     // console.log(`$ ${answer}`); 
     if(answer == "exit 0"){
@@ -115,41 +116,47 @@ let prompt = () => {
       let ans = answer.replace("echo ", "");
       console.log(ans)
     }else if(!answer.includes("type")){
-      
-  let myVariable = process.env.PATH || false;
-  let ans = answer.split(" ")
-  if(ans.length < 2) return false;
-  let file = ans[0]
-  let fileArr = []
+          
+      let myVariable = process.env.PATH || false;
+      let ans = answer.split(" ")
+      if(ans.length < 2) return false;
+      let file = ans[0]
+      let fileArr = []
 
-  for(let j = 1; j < ans.length; j++){
-    fileArr.push(ans[j])
-  }
-    // console.log(fileArr)
-
-
-  if(myVariable){
-    let myArr = myVariable.split(":")
-    // console.log(myArr)
-    for (let i = 0; i < myArr.length; i++) {
-      if(fs.existsSync(`${myArr[i]}/${file}`)){
-        // return opt(file, fileArr)
-        let outss;
-        opt(file, fileArr)
-          .then(output =>{ console.log(output)})
-          .catch(err => console.error("Error:", err));
-        // return outss
+      for(let j = 1; j < ans.length; j++){
+        fileArr.push(ans[j])
       }
-    }
-  }
+        // console.log(fileArr)
+
+
+      if(myVariable){
+        let myArr = myVariable.split(":")
+        // console.log(myArr)
+        for (let i = 0; i < myArr.length; i++) {
+          if(fs.existsSync(`${myArr[i]}/${file}`)){
+            // return opt(file, fileArr)
+            let outss;
+            opt(file, fileArr)
+              .then(output =>{ console.log(output)})
+              .catch(err => console.error("Error:", err));
+            // return outss
+          }
+        }
+      }
     }else{
       console.log(`${answer}: command not found`)
     }
-  prompt()
+  // prompt()
+  outppp = answer
 });
+return outppp
 }
 
-prompt()
+let me = True;
+
+while(me != false){
+  prompt()
+}
 
 
 
