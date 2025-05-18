@@ -46,8 +46,9 @@ let execute = (ans) => {
         // return opt(file, fileArr)
         let outss;
         opt(file, fileArr)
-          .then(output => process.stdout.write(`${output}`))
+          .then(output =>{outss = output})
           .catch(err => console.error("Error:", err));
+        return outss
       }
     }
   }
@@ -115,7 +116,8 @@ let prompt = () => {
       console.log(ans)
     }else if(!answer.includes("type")){
       
-      execute(answer)
+      let ans = execute(answer)
+      console.log(ans)
     }else{
       console.log(`${answer}: command not found`)
     }
