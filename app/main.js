@@ -74,7 +74,7 @@ let opt = async (file = null, fieArgs = null) => {
 }
 
 
-let prompt = async () => {
+let prompt = () => {
   // process.stdout.write("$ ");
   rl.question("$ ", async (answer) => {
     // console.log(`$ ${answer}`); 
@@ -110,11 +110,11 @@ let prompt = async () => {
     }else{
       console.log(`${answer}: command not found`)
     }
-  await prompt()
+   prompt()
 });
 }
 
-await prompt()
+prompt()
 
 
 
