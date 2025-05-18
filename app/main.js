@@ -113,12 +113,13 @@ let prompt = () => {
 
       let ans = execute(answer)
       
-      console.log("daniel")
+      console.log(ans)
     }else{
       console.log(`${answer}: command not found`)
     }
-  prompt()
+
 });
+  prompt()
 }
 
 prompt()
