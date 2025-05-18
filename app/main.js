@@ -69,7 +69,7 @@ let opt = function(file = null, fieArgs = null){
           }                
   });  
 
-  console.log("daniel")
+  console.log(output)
 }
 
 
