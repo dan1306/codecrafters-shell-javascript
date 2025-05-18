@@ -55,8 +55,9 @@ let execute = (ans) => {
 
 let opt = function(file = null, fieArgs = null){
   let res = false
+  let output
   if(!file || !fieArgs) return res;
-  console.log("daniel")
+  // console.log("daniel")
   exec(file, fieArgs, function(err, data) { 
         // exec('file.EXE', ["arg1", "arg2", "arg3"], function(err, data) {  
           // console.log(err)
@@ -64,11 +65,11 @@ let opt = function(file = null, fieArgs = null){
           if(!err){
             // console.log(data.toString())
             // console.log(`${data.toString()}`);
-            process.stdout.write(data.toString());
+          output = data.toString()
           }                
   });  
 
-  return res;
+  console.log("daniel")
 }
 
 
