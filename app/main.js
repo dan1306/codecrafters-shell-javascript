@@ -152,7 +152,7 @@ let prompt = () => {
 return outppp
 }
 
-let me = True;
+let me = true;
 
 while(me != false){
   prompt()
